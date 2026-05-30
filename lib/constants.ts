@@ -1,9 +1,9 @@
 export const SITE = {
   name: "Inkqova",
   parent: "Custom Printing & Corporate Gifting",
-  url: "www.inkqova.in", // display string (no protocol)
+  url: "inkqova.in", // display string (no protocol)
   // Canonical origin used by metadata, sitemap, robots, JSON-LD.
-  canonical: "https://www.inkqova.in",
+  canonical: "https://inkqova.in",
   ogImage: "/og.png",
   icon: "/logo-mark.png",
   locale: "en_IN",
@@ -254,7 +254,7 @@ export const ECOSYSTEM = {
     {
       name: "Inkqova",
       domain: "inkqova.in",
-      url: "https://www.inkqova.in",
+      url: "https://inkqova.in",
       blurb: "Custom printing & corporate gifting — apparel, drinkware, stationery.",
       current: true,
     },
