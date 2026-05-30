@@ -1,9 +1,9 @@
 export const SITE = {
   name: "Inkqova",
   parent: "Custom Printing & Corporate Gifting",
-  url: "inkqova.in", // display string (no protocol)
+  url: "inkqova.com", // display string (no protocol)
   // Canonical origin used by metadata, sitemap, robots, JSON-LD.
-  canonical: "https://inkqova.in",
+  canonical: "https://inkqova.com",
   ogImage: "/og.png",
   icon: "/logo-mark.png",
   locale: "en_IN",
@@ -30,13 +30,13 @@ export const SITE = {
   phone: "+91 8174 06 8145",
   phoneHref: "tel:+918174068145",
   whatsappHref: "https://wa.me/918174068145",
-  email: "hello@inkqova.in",
-  emailHref: "mailto:hello@inkqova.in",
+  email: "hello@inkqova.com",
+  emailHref: "mailto:hello@inkqova.com",
   instagram: "@inkqova",
   instagramHref: "https://instagram.com/inkqova",
   // Contact form posts here via a prefilled mailto.
   quoteHref:
-    "mailto:hello@inkqova.in?subject=Quote%20Request%20%E2%80%94%20Inkqova",
+    "mailto:hello@inkqova.com?subject=Quote%20Request%20%E2%80%94%20Inkqova",
   address: "Lucknow, Uttar Pradesh, India",
 } as const;
 
@@ -253,8 +253,8 @@ export const ECOSYSTEM = {
     },
     {
       name: "Inkqova",
-      domain: "inkqova.in",
-      url: "https://inkqova.in",
+      domain: "inkqova.com",
+      url: "https://inkqova.com",
       blurb: "Custom printing & corporate gifting — apparel, drinkware, stationery.",
       current: true,
     },

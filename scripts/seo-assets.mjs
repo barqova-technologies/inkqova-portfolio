@@ -79,7 +79,7 @@ async function og() {
          <text x="90" y="400" fill="#cfcad0" font-size="34" font-weight="500">
                T-shirts &#183; Mugs &#183; Diaries &#183; Pens &#183; Gifting</text>
          <text x="90" y="560" fill="${GOLD}" font-size="28" font-weight="600"
-               letter-spacing="2">inkqova.in</text>
+               letter-spacing="2">inkqova.com</text>
        </g>
      </svg>`
   );
