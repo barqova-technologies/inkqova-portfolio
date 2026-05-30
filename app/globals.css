@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* brand — amber/gold lightning from the iQ mark */
+  --gold: #f5a623;
+  --gold-deep: #e07b00;
+  --gold-soft: #fbc15e;
+  --gold-glow: rgba(245, 166, 35, 0.18);
+
+  --dark-bg: #0b0b0d;
+  --dark-surface: #15151a;
+  --dark-border: rgba(245, 166, 35, 0.16);
+  --light-bg: #faf7f1;
+  --light-surface: #ffffff;
+  --light-border: rgba(20, 16, 8, 0.10);
+
+  /* active theme tokens — warm ivory LIGHT defaults */
+  --bg: var(--light-bg);
+  --surface: var(--light-surface);
+  --border: var(--light-border);
+  --text: #16151a;
+  --text-muted: #6c675f;
+  --grain-opacity: 0.02;
+}
+
+.dark {
+  --bg: var(--dark-bg);
+  --surface: var(--dark-surface);
+  --border: var(--dark-border);
+  --text: #f3f1ec;
+  --text-muted: #9a958c;
+  --grain-opacity: 0.05;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--gold);
+  color: #16151a;
+}
+
+/* animated link underline */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1.5px;
+  width: 100%;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* subtle dark-mode vignette for depth */
+.dark body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  box-shadow: inset 0 0 220px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-dm-sans), sans-serif;
+  transition: background-color 300ms ease, color 300ms ease;
+  overflow-x: hidden;
+}
+
+/* smooth theme transition on common surfaces */
+.theme-transition,
+.theme-transition * {
+  transition: background-color 300ms ease, border-color 300ms ease,
+    color 300ms ease, box-shadow 300ms ease;
+}
+
+/* ---------- grain texture overlay ---------- */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* page-wide fixed grain */
+.grain-fixed::after {
+  position: fixed;
+}
+
+/* ---------- hero dot-grid ---------- */
+.dot-grid {
+  background-image: radial-gradient(var(--gold-deep) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.05;
+}
+
+.dark .dot-grid {
+  background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+  opacity: 0.06;
+}
+
+/* ---------- text helpers ---------- */
+.text-stroke {
+  -webkit-text-stroke: 1.5px var(--gold-deep);
+  color: transparent;
+}
+
+.dark .text-stroke {
+  -webkit-text-stroke-color: var(--gold);
+}
+
+@media (min-width: 768px) {
+  .text-stroke {
+    -webkit-text-stroke-width: 2px;
+  }
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* gold gradient text */
+.text-gradient-gold {
+  background: linear-gradient(100deg, var(--gold-deep), var(--gold), var(--gold-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- surfaces ---------- */
+.surface {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+}
+
+/* ---------- logo glow in dark ---------- */
+.dark .logo-glow {
+  filter: drop-shadow(0 0 12px rgba(245, 166, 35, 0.45));
+}
+
+/* ---------- scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 6px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-deep);
+}
+
+/* ---------- marquee pause on hover ---------- */
+.marquee-track {
+  width: max-content;
+}
+.marquee-pause:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
